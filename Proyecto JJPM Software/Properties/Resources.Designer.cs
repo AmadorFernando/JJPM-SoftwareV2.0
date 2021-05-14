@@ -19,7 +19,7 @@ namespace Proyecto_JJPM_Software.Properties {
     // a través de una herramienta como ResGen o Visual Studio.
     // Para agregar o quitar un miembro, edite el archivo .ResX y, a continuación, vuelva a ejecutar ResGen
     // con la opción /str o recompile su proyecto de VS.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
@@ -166,6 +166,16 @@ namespace Proyecto_JJPM_Software.Properties {
         public static System.Drawing.Bitmap Restore_Window_2_48px {
             get {
                 object obj = ResourceManager.GetObject("Restore_Window_2_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap visibility {
+            get {
+                object obj = ResourceManager.GetObject("visibility", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

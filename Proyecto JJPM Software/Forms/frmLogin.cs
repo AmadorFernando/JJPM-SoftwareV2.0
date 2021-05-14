@@ -1,4 +1,5 @@
 ﻿using Proyecto_JJPM_Software.Clases;
+using Proyecto_JJPM_Software.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -28,20 +29,25 @@ namespace Proyecto_JJPM_Software.Forms
             WindowState = FormWindowState.Minimized;
         }
 
-        //Boton para regresar el tamaño de la ventana al anterior.
-        private void pboxRestore_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Normal;
-            pboxMax.Visible = true;
-            pboxRestore.Visible = false;
-        }
-
         //Boton para agrandar la ventana a tamaño completo.
         private void pboxMax_Click(object sender, EventArgs e)
         {
-            WindowState = FormWindowState.Maximized;
-            pboxMax.Visible = false;
-            pboxRestore.Visible = true;
+            FormBorderStyle = FormBorderStyle.None;
+            Left = Top = 0;
+            if (Width > 965)
+            {
+                pboxMax.Image = new Bitmap(Resources.Maximize_Window_2_48px);
+                Width = 965;
+                Height = 720;
+                Left = (Screen.PrimaryScreen.WorkingArea.Width / 2) - (Width / 2);
+                Top = (Screen.PrimaryScreen.WorkingArea.Height / 2) - (Height / 2);
+            }
+            else 
+            {
+                pboxMax.Image = new Bitmap(Resources.Restore_Window_2_48px);
+                Width = Screen.PrimaryScreen.WorkingArea.Width;
+                Height = Screen.PrimaryScreen.WorkingArea.Height;
+            }
         }
 
         //Boton para cerrar la ventana.
@@ -72,13 +78,11 @@ namespace Proyecto_JJPM_Software.Forms
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            Log.AbrirBD();
-            string[] TipUsuario=new string[2];
+            string[] TipUsuario = new string[2];
             string PassEncriptada = "";
-            
             //Encritamos la Contraseña
             PassEncriptada = Encrypt.GetSHA256(txtBoxPassword.Text.Trim());
-
+            Log.AbrirBD();
             if (string.IsNullOrWhiteSpace(txtBoxUsername.Text)||string.IsNullOrWhiteSpace(txtBoxPassword.Text))
             {
                 MessageBox.Show("Ingresa tu usuario y contraseña.", "Falta de Informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -166,6 +170,12 @@ namespace Proyecto_JJPM_Software.Forms
         private void frmLogin_Shown(object sender, EventArgs e)
         {
             txtBoxUsername.Focus();
+        }
+
+        private void pboxPassVisual_DoubleClick(object sender, EventArgs e)
+        {
+            Bitmap bmp = new Bitmap(Resources.Ojito);
+            bmp.Save("bmp.png");
         }
     }
 }

@@ -132,9 +132,6 @@
 </value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="JJP1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\JJP1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="JJP" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\JJP.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -152,6 +149,9 @@
         AcOdNy1i+D+RAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="Ojito" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ojito.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Menu_48px" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -162,11 +162,14 @@
   <data name="Close_Window__2_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Close_Window__2_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Caps_LockOn 48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Caps_LockOn 48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="JJP1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\JJP1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Caps_LockOn 48px 2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Caps_LockOn 48px 2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Caps_LockOn 48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Caps_LockOn 48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Restore_Window_2_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Restore Window 2_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -174,7 +177,7 @@
   <data name="Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Ojito" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Ojito.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="visibility" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\visibility.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

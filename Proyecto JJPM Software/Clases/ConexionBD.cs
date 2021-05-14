@@ -7,18 +7,22 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Configuration;
 
+using MySql.Data.MySqlClient;
+
 namespace Proyecto_JJPM_Software.Clases
 {
     class ConexionBD
     {
-        string Cadena = "Data Source=DESKTOP-PRRK88P;Initial Catalog=PruebaCSharpSQL;Integrated Security= True";
-		//string Cadena = "Data Source=ASUS-A\\ADMINISTRACIONBD;Initial Catalog=PruebaCSharpSQL;Integrated Security=True";
+        private string HOST = "us-cdbr-east-03.cleardb.com";
+        private string USER = "b65321e66023b8";
+        private string PASS = "b6c76f52";
+        private string DATA = "heroku_6bbfc71ddd5b758";
 
-		public SqlConnection ConectarBD = new SqlConnection();
+        public MySqlConnection ConectarBD = new MySqlConnection();
 
         public ConexionBD()
         {
-            ConectarBD.ConnectionString = Cadena;
+            ConectarBD.ConnectionString = string.Format("datasource={0};username={1};password={2};database={3};", HOST, USER, PASS, DATA);
         }
 
         public void AbrirBD()
@@ -46,10 +50,10 @@ namespace Proyecto_JJPM_Software.Clases
             {
                 //Toma los valores de Usuario y Pass.
                 //Evitando SQL Injection
-                SqlCommand cmd = new SqlCommand("Select Usuario,Pass,Tipo,Nombre from Usuario where Usuario=@Usuario and Pass=@Pass", ConectarBD);
-                cmd.Parameters.Add(new SqlParameter("@Usuario", Usuario));
-                cmd.Parameters.Add(new SqlParameter("@Pass", Contra));
-                SqlDataAdapter dr = new SqlDataAdapter(cmd);
+                MySqlCommand cmd = new MySqlCommand("Select Usuario,Pass,Tipo,Nombre from Usuario where Usuario=@Usuario and Pass=@Pass", ConectarBD);
+                cmd.Parameters.Add(new MySqlParameter("@Usuario", Usuario));
+                cmd.Parameters.Add(new MySqlParameter("@Pass", Contra));
+                MySqlDataAdapter dr = new MySqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 dr.Fill(dt);
 
