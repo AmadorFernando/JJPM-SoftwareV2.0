@@ -51,6 +51,7 @@
             this.lblLetreroDerecho = new System.Windows.Forms.Label();
             this.lblLetreroIzquierdo = new System.Windows.Forms.Label();
             this.mtxtTelefono = new System.Windows.Forms.MaskedTextBox();
+            this.btnEnviar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DG)).BeginInit();
             this.panelTop.SuspendLayout();
             this.SuspendLayout();
@@ -150,7 +151,7 @@
             // 
             this.BTNInsert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTNInsert.Font = new System.Drawing.Font("Lucida Bright", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTNInsert.Location = new System.Drawing.Point(115, 380);
+            this.BTNInsert.Location = new System.Drawing.Point(99, 319);
             this.BTNInsert.Name = "BTNInsert";
             this.BTNInsert.Size = new System.Drawing.Size(195, 59);
             this.BTNInsert.TabIndex = 7;
@@ -288,11 +289,24 @@
             this.mtxtTelefono.Size = new System.Drawing.Size(273, 26);
             this.mtxtTelefono.TabIndex = 2;
             // 
+            // btnEnviar
+            // 
+            this.btnEnviar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEnviar.Font = new System.Drawing.Font("Lucida Bright", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEnviar.Location = new System.Drawing.Point(99, 399);
+            this.btnEnviar.Name = "btnEnviar";
+            this.btnEnviar.Size = new System.Drawing.Size(195, 59);
+            this.btnEnviar.TabIndex = 50;
+            this.btnEnviar.Text = "Enviar";
+            this.btnEnviar.UseVisualStyleBackColor = true;
+            this.btnEnviar.Click += new System.EventHandler(this.btnEnviar_Click);
+            // 
             // frmLeads
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1080, 660);
+            this.Controls.Add(this.btnEnviar);
             this.Controls.Add(this.mtxtTelefono);
             this.Controls.Add(this.panelTop);
             this.Controls.Add(this.panel2);
@@ -353,5 +367,6 @@
         private System.Windows.Forms.Label lblLetreroDerecho;
         private System.Windows.Forms.Label lblLetreroIzquierdo;
         private System.Windows.Forms.MaskedTextBox mtxtTelefono;
+        private System.Windows.Forms.Button btnEnviar;
     }
 }

@@ -19,19 +19,22 @@ namespace Proyecto_JJPM_Software.Forms
         //public SqlConnection ConexionBD = new SqlConnection("Data Source=ASUS-A\\ADMINISTRACIONBD;Initial Catalog=PruebaCSharpSQL;Integrated Security=True");
         public SqlConnection ConexionBD = new SqlConnection("Data Source=DESKTOP-PRRK88P;Initial Catalog=PruebaCSharpSQL;Integrated Security= True");
         public DataSet ds;
+        string LocalUsuario = "";
+        
 
-		public frmLeads()
+		public frmLeads(string usuario)
         {
             InitializeComponent();
-			DG.DataSource = Seleccionar();
-            //TBIdInsert.Text = DG.Rows.Count.ToString();
-            TBIdInsert.Text = Convert.ToString(DG.Rows.Count + 1);
+            LocalUsuario = usuario;
+            DG.DataSource = Seleccionar();
         }
 
 
 		public DataTable Seleccionar()
 		{
-			SqlCommand sqlCommand = new SqlCommand("SELECT * FROM Leads", ConexionBD);
+			SqlCommand sqlCommand = new SqlCommand("select * from TemporalLeads where Usuario=@Usuario;", ConexionBD);
+            SqlParameter parametro = new SqlParameter();
+            sqlCommand.Parameters.Add(new SqlParameter("@Usuario", LocalUsuario));
 			SqlDataAdapter da = new SqlDataAdapter(sqlCommand);
 			ds = new DataSet();
 			da.Fill(ds, "Leads");
@@ -39,13 +42,20 @@ namespace Proyecto_JJPM_Software.Forms
 			return ds.Tables["Leads"];
 		}
 
-		public bool Insertar(/*atributos*/ string idLead, string Fecha, string Nombre, string Telefono, string Manager, string Correo, string Direccion, string Zona)
+		public bool Insertar( string Fecha, string Nombre, string Telefono, string Manager, string Correo, string Direccion, string Zona)
 		{
 			ConexionBD.Open();
-			SqlCommand sqlCommand = new SqlCommand(string.Format("Insert into Leads values ({0}, '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', {7})", new string[] { idLead, Fecha, Nombre, Telefono, Manager, Correo, Direccion, Zona }), ConexionBD);
-            //TBIdInsert.Text = DG.Rows.Count.ToString();
-            TBIdInsert.Text = Convert.ToString(DG.Rows.Count);
-            int filasafectadas = sqlCommand.ExecuteNonQuery();
+            SqlCommand cmd = new SqlCommand("Insert into TemporalLeads values(@Usuario,@Fecha,@Nombre,@Telefono,@Manager,@Correo,@Direccion,@Zona)",ConexionBD);
+            cmd.Parameters.Add(new SqlParameter("@Usuario", LocalUsuario));
+            cmd.Parameters.Add(new SqlParameter("@Fecha", Convert.ToDateTime(Fecha)));
+            cmd.Parameters.Add(new SqlParameter("@Nombre", Nombre));
+            cmd.Parameters.Add(new SqlParameter("@Telefono", Telefono));
+            cmd.Parameters.Add(new SqlParameter("@Manager", Manager));
+            cmd.Parameters.Add(new SqlParameter("@Correo", Correo));
+            cmd.Parameters.Add(new SqlParameter("@Direccion", Direccion));
+            cmd.Parameters.Add(new SqlParameter("@Zona", Zona));
+
+            int filasafectadas = cmd.ExecuteNonQuery();
 			if (filasafectadas > 0) return true;
 			else return false;
 		}
@@ -75,7 +85,14 @@ namespace Proyecto_JJPM_Software.Forms
                     Zona = "6";
                     break;
                 default:
-                    MessageBox.Show("Selecciona una zona valida", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //if (Zona == "" || (mtxtTelefono.Text.Length < 12) || string.IsNullOrWhiteSpace(TBNombre.Text) || string.IsNullOrWhiteSpace(mtxtTelefono.Text) || string.IsNullOrWhiteSpace(TBManager.Text) || string.IsNullOrWhiteSpace(TBCorreo.Text) || string.IsNullOrWhiteSpace(TBDireccion.Text))
+                    //{
+                    //    MessageBox.Show("Falta ingresar informacion necesaria", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //}
+                    //else
+                    //{
+                    //    MessageBox.Show("Selecciona una zona valida", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //}
                     break;
             }
             //Telefono
@@ -90,8 +107,8 @@ namespace Proyecto_JJPM_Software.Forms
             {
                 //Fecha Actual
                 string Fecha = DateTime.Now.ToShortDateString();
-       
-                if (Insertar(TBIdInsert.Text, Fecha, TBNombre.Text, mas, TBManager.Text, TBCorreo.Text, TBDireccion.Text, Zona))
+                MessageBox.Show(Fecha);
+                if (Insertar( Fecha, TBNombre.Text, mas, TBManager.Text, TBCorreo.Text, TBDireccion.Text, Zona))
                 {
                     MessageBox.Show("Datos insertados correctamente", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     TBIdInsert.Text = Convert.ToString(DG.Rows.Count);
@@ -115,9 +132,9 @@ namespace Proyecto_JJPM_Software.Forms
 		public bool Eliminar(string idLead)
 		{
 			ConexionBD.Open();
-			SqlCommand sqlCommand = new SqlCommand(string.Format("Delete from Leads where IdLead = {0}", idLead), ConexionBD);
+			SqlCommand sqlCommand = new SqlCommand(string.Format("Delete from TemporalLeads where idTemp = {0}", idLead), ConexionBD);
 			int filasafectadas = sqlCommand.ExecuteNonQuery();
-            TBIdInsert.Text =Convert.ToString(DG.Rows.Count);
+            //TBIdInsert.Text =Convert.ToString(DG.Rows.Count);
             ConexionBD.Close();
 			if (filasafectadas > 0) return true;
 			else return false;
@@ -149,5 +166,13 @@ namespace Proyecto_JJPM_Software.Forms
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
 
+        private void btnEnviar_Click(object sender, EventArgs e)
+        {
+            DialogResult dr =MessageBox.Show("¿Estas seguro que deseas enviar los datos almacenados?", "Alerta", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+            if (dr==DialogResult.OK)
+            {
+
+            }
+        }
     }
 }

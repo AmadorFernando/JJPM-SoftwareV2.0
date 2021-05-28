@@ -95,14 +95,14 @@ namespace Proyecto_JJPM_Software.Forms
                     if (TipUsuario[0] == "Caller")
                     {
                         this.Hide();
-                        var form1 = new frmPrincipal(TipUsuario);
+                        var form1 = new frmPrincipal(TipUsuario,txtBoxUsername.Text);
                         form1.Closed += (s, args) => this.Close();
                         form1.Show();
                     }
                     else if (TipUsuario[0] == "Leads")
                     {
                         this.Hide();
-                        var form1 = new frmPrincipal(TipUsuario);
+                        var form1 = new frmPrincipal(TipUsuario,txtBoxUsername.Text);
                         form1.Closed += (s, args) => this.Close();
                         form1.Show();
 
@@ -110,7 +110,7 @@ namespace Proyecto_JJPM_Software.Forms
                     else if (TipUsuario[0] == "Admin")
                     {
                         this.Hide();
-                        var form1 = new frmPrincipal(TipUsuario);
+                        var form1 = new frmPrincipal(TipUsuario,txtBoxUsername.Text);
                         form1.Closed += (s, args) => this.Close();
                         form1.Show();
                     }
@@ -135,6 +135,7 @@ namespace Proyecto_JJPM_Software.Forms
             txtBoxUsername.Text = "Admin";
         }
 
+        //RIP Mensaje secreto :( Eddy lo mato </3
         private void label1_Click(object sender, EventArgs e)
         {
             //Shhhh 

@@ -17,11 +17,13 @@ namespace Proyecto_JJPM_Software
         Point lastclick;
         //Esta variable guarda la informacion del usuario.
         string[] InfoUsuario;
-        public frmPrincipal(string[] TipoUsu)
+        string LocalUsuario = "";
+        public frmPrincipal(string[] TipoUsu, string Usuario)
         {
             InitializeComponent();
             InfoUsuario = TipoUsu;
             lblTituloCentral.Text = "["+TipoUsu[0]+"]"+" "+TipoUsu[1];
+            LocalUsuario = Usuario;
             if (TipoUsu[0]=="Admin")
             {
                 //Habilitamos el boton "Agregar Usuario"
@@ -92,7 +94,7 @@ namespace Proyecto_JJPM_Software
             }
             else if (Usuario == "Leads")
             {
-                frmLeads frm1 = new frmLeads() { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
+                frmLeads frm1 = new frmLeads(LocalUsuario) { Dock = DockStyle.Fill, TopLevel = false, TopMost = true };
                 this.panelCenter.Controls.Add(frm1);
                 frm1.Show();
                 lblIniciar.Enabled = false;
