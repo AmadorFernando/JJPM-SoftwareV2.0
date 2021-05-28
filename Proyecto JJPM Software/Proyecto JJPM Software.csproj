@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\ConexionBD.cs" />
+    <Compile Include="Clases\DatabaseManage.cs" />
     <Compile Include="Clases\Encrypt.cs" />
     <Compile Include="Forms\frmAgregarUsuario.cs">
       <SubType>Form</SubType>

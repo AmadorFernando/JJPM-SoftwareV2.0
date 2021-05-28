@@ -334,6 +334,7 @@
             this.Name = "frmLeads";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "frmLeads";
+            this.Load += new System.EventHandler(this.frmLeads_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DG)).EndInit();
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();

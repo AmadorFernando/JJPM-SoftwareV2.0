@@ -29,10 +29,8 @@
         private void InitializeComponent()
         {
             this.DGCaller = new System.Windows.Forms.DataGridView();
-            this.TBIdCaller = new System.Windows.Forms.TextBox();
             this.TBComentario = new System.Windows.Forms.TextBox();
             this.TBIdLead = new System.Windows.Forms.TextBox();
-            this.lblidCaller = new System.Windows.Forms.Label();
             this.lblidLead = new System.Windows.Forms.Label();
             this.lblAccion = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -68,15 +66,6 @@
             this.DGCaller.TabIndex = 30;
             this.DGCaller.TabStop = false;
             // 
-            // TBIdCaller
-            // 
-            this.TBIdCaller.Enabled = false;
-            this.TBIdCaller.Location = new System.Drawing.Point(108, 9);
-            this.TBIdCaller.Name = "TBIdCaller";
-            this.TBIdCaller.Size = new System.Drawing.Size(40, 26);
-            this.TBIdCaller.TabIndex = 31;
-            this.TBIdCaller.TabStop = false;
-            // 
             // TBComentario
             // 
             this.TBComentario.Location = new System.Drawing.Point(278, 18);
@@ -94,15 +83,6 @@
             this.TBIdLead.Name = "TBIdLead";
             this.TBIdLead.Size = new System.Drawing.Size(41, 26);
             this.TBIdLead.TabIndex = 1;
-            // 
-            // lblidCaller
-            // 
-            this.lblidCaller.AutoSize = true;
-            this.lblidCaller.Location = new System.Drawing.Point(38, 12);
-            this.lblidCaller.Name = "lblidCaller";
-            this.lblidCaller.Size = new System.Drawing.Size(70, 20);
-            this.lblidCaller.TabIndex = 37;
-            this.lblidCaller.Text = "IdCaller";
             // 
             // lblidLead
             // 
@@ -204,10 +184,8 @@
             this.panelCenter.Controls.Add(this.label5);
             this.panelCenter.Controls.Add(this.lblAccion);
             this.panelCenter.Controls.Add(this.lblidLead);
-            this.panelCenter.Controls.Add(this.lblidCaller);
             this.panelCenter.Controls.Add(this.TBIdLead);
             this.panelCenter.Controls.Add(this.TBComentario);
-            this.panelCenter.Controls.Add(this.TBIdCaller);
             this.panelCenter.Controls.Add(this.DGCaller);
             this.panelCenter.Location = new System.Drawing.Point(0, 53);
             this.panelCenter.Name = "panelCenter";
@@ -296,6 +274,7 @@
             this.Name = "frmCaller";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "frmCaller";
+            this.Load += new System.EventHandler(this.frmCaller_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGCaller)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGLeads)).EndInit();
             this.panelCenter.ResumeLayout(false);
@@ -309,10 +288,8 @@
         #endregion
 
         private System.Windows.Forms.DataGridView DGCaller;
-        private System.Windows.Forms.TextBox TBIdCaller;
         private System.Windows.Forms.TextBox TBComentario;
         private System.Windows.Forms.TextBox TBIdLead;
-        private System.Windows.Forms.Label lblidCaller;
         private System.Windows.Forms.Label lblidLead;
         private System.Windows.Forms.Label lblAccion;
         private System.Windows.Forms.Label label5;

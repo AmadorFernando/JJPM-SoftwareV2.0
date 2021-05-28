@@ -356,6 +356,7 @@
             this.Name = "frmAgregarUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAgregarUsuario";
+            this.Load += new System.EventHandler(this.frmAgregarUsuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DG)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxPassVisual)).EndInit();
             this.panelTop.ResumeLayout(false);

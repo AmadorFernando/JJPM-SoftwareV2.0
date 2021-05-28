@@ -1,13 +1,7 @@
 ﻿using Proyecto_JJPM_Software.Clases;
 using Proyecto_JJPM_Software.Properties;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Proyecto_JJPM_Software.Forms
@@ -16,11 +10,12 @@ namespace Proyecto_JJPM_Software.Forms
     {
         //Esta variable guardara el ultimo click, para poder realizar el movimiento de la ventana.
         Point lastclick;
-        ConexionBD Log = new ConexionBD();
+        private DatabaseManage dbManage;
 
         public frmLogin()
         {
             InitializeComponent();
+            dbManage = new DatabaseManage();
         }
 
         //Boton para minimizar la ventana.
@@ -82,7 +77,6 @@ namespace Proyecto_JJPM_Software.Forms
             string PassEncriptada = "";
             //Encritamos la Contraseña
             PassEncriptada = Encrypt.GetSHA256(txtBoxPassword.Text.Trim());
-            Log.AbrirBD();
             if (string.IsNullOrWhiteSpace(txtBoxUsername.Text)||string.IsNullOrWhiteSpace(txtBoxPassword.Text))
             {
                 MessageBox.Show("Ingresa tu usuario y contraseña.", "Falta de Informacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -91,7 +85,7 @@ namespace Proyecto_JJPM_Software.Forms
             {
                 try
                 {
-                    TipUsuario = Log.Login(txtBoxUsername.Text, PassEncriptada);
+                    TipUsuario = dbManage.Login(txtBoxUsername.Text, PassEncriptada);
                     if (TipUsuario[0] == "Caller")
                     {
                         this.Hide();
@@ -117,7 +111,6 @@ namespace Proyecto_JJPM_Software.Forms
                     else
                     {
                         MessageBox.Show("El usuario/contraseña invalida.");
-                        Log.CerrarBD();
                     }
                 }
                 catch (Exception)

@@ -43,6 +43,19 @@ namespace Proyecto_JJPM_Software.Clases
             ConectarBD.Close();
         }
 
+        // Seleccionar datos para frmLeads
+        public DataTable Seleccionar(string LocalUsuario, MySqlConnection conexion)
+        {
+            DataSet ds;
+            MySqlCommand sqlCommand = new MySqlCommand("select * from TemporalLeads where Usuario=@Usuario;", conexion);
+            MySqlParameter parametro = new MySqlParameter();
+            sqlCommand.Parameters.Add(new MySqlParameter("@Usuario", LocalUsuario));
+            MySqlDataAdapter da = new MySqlDataAdapter(sqlCommand);
+            ds = new DataSet();
+            da.Fill(ds, "Leads");
+            return ds.Tables["Leads"];
+        }
+
         public string[] Login(string Usuario, string Contra)
         {
             string[] TipoUsuario=new string[2];

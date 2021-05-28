@@ -1,13 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.Sql;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Proyecto_JJPM_Software.Clases;
 
@@ -15,50 +6,18 @@ namespace Proyecto_JJPM_Software.Forms
 {
     public partial class frmLeads : Form
     {
-
-        //public SqlConnection ConexionBD = new SqlConnection("Data Source=ASUS-A\\ADMINISTRACIONBD;Initial Catalog=PruebaCSharpSQL;Integrated Security=True");
-        public SqlConnection ConexionBD = new SqlConnection("Data Source=DESKTOP-PRRK88P;Initial Catalog=PruebaCSharpSQL;Integrated Security= True");
-        public DataSet ds;
-        string LocalUsuario = "";
+        // Instancia de Database Manage
+        private DatabaseManage dbManage;
+        // Usuario
+        protected string LocalUsuario;
         
 
 		public frmLeads(string usuario)
         {
             InitializeComponent();
             LocalUsuario = usuario;
-            DG.DataSource = Seleccionar();
-        }
-
-
-		public DataTable Seleccionar()
-		{
-			SqlCommand sqlCommand = new SqlCommand("select * from TemporalLeads where Usuario=@Usuario;", ConexionBD);
-            SqlParameter parametro = new SqlParameter();
-            sqlCommand.Parameters.Add(new SqlParameter("@Usuario", LocalUsuario));
-			SqlDataAdapter da = new SqlDataAdapter(sqlCommand);
-			ds = new DataSet();
-			da.Fill(ds, "Leads");
-			ConexionBD.Close();
-			return ds.Tables["Leads"];
-		}
-
-		public bool Insertar( string Fecha, string Nombre, string Telefono, string Manager, string Correo, string Direccion, string Zona)
-		{
-			ConexionBD.Open();
-            SqlCommand cmd = new SqlCommand("Insert into TemporalLeads values(@Usuario,@Fecha,@Nombre,@Telefono,@Manager,@Correo,@Direccion,@Zona)",ConexionBD);
-            cmd.Parameters.Add(new SqlParameter("@Usuario", LocalUsuario));
-            cmd.Parameters.Add(new SqlParameter("@Fecha", Convert.ToDateTime(Fecha)));
-            cmd.Parameters.Add(new SqlParameter("@Nombre", Nombre));
-            cmd.Parameters.Add(new SqlParameter("@Telefono", Telefono));
-            cmd.Parameters.Add(new SqlParameter("@Manager", Manager));
-            cmd.Parameters.Add(new SqlParameter("@Correo", Correo));
-            cmd.Parameters.Add(new SqlParameter("@Direccion", Direccion));
-            cmd.Parameters.Add(new SqlParameter("@Zona", Zona));
-
-            int filasafectadas = cmd.ExecuteNonQuery();
-			if (filasafectadas > 0) return true;
-			else return false;
-		}
+            dbManage = new DatabaseManage();
+        }		
 
 		private void BTNInsert_Click(object sender, EventArgs e)
 		{
@@ -108,11 +67,11 @@ namespace Proyecto_JJPM_Software.Forms
                 //Fecha Actual
                 string Fecha = DateTime.Now.ToShortDateString();
                 MessageBox.Show(Fecha);
-                if (Insertar( Fecha, TBNombre.Text, mas, TBManager.Text, TBCorreo.Text, TBDireccion.Text, Zona))
+                if (dbManage.InsertarLead(LocalUsuario, Fecha, TBNombre.Text, mas, TBManager.Text, TBCorreo.Text, TBDireccion.Text, Zona))
                 {
                     MessageBox.Show("Datos insertados correctamente", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     TBIdInsert.Text = Convert.ToString(DG.Rows.Count);
-                    DG.DataSource = Seleccionar();
+                    DG.DataSource = dbManage.SeleccionarLeads(LocalUsuario);
 
                     //Limpiamos las textbox
                     TBNombre.Clear();
@@ -129,26 +88,16 @@ namespace Proyecto_JJPM_Software.Forms
             }
 		}
 
-		public bool Eliminar(string idLead)
-		{
-			ConexionBD.Open();
-			SqlCommand sqlCommand = new SqlCommand(string.Format("Delete from TemporalLeads where idTemp = {0}", idLead), ConexionBD);
-			int filasafectadas = sqlCommand.ExecuteNonQuery();
-            //TBIdInsert.Text =Convert.ToString(DG.Rows.Count);
-            ConexionBD.Close();
-			if (filasafectadas > 0) return true;
-			else return false;
-		}
 		private void BTNDelete_Click(object sender, EventArgs e)
 		{
             DialogResult dr = MessageBox.Show("¿Estas seguro que deseas eliminar a este Lead?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
             if (dr == DialogResult.Yes && !(string.IsNullOrWhiteSpace(TBIdDelete.Text)))
             {
-                if (Eliminar(TBIdDelete.Text))
+                if (dbManage.EliminarLead(int.Parse(TBIdDelete.Text)))
                 {
                     MessageBox.Show("Datos Eliminados con exito.", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     TBIdInsert.Text = DG.Rows.Count.ToString();
-                    DG.DataSource = Seleccionar();
+                    DG.DataSource = dbManage.SeleccionarLeads(LocalUsuario);
                 }
                 else
                 {
@@ -173,6 +122,11 @@ namespace Proyecto_JJPM_Software.Forms
             {
 
             }
+        }
+
+        private void frmLeads_Load(object sender, EventArgs e)
+        {
+            DG.DataSource = dbManage.SeleccionarLeads(LocalUsuario);
         }
     }
 }
