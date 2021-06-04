@@ -117,10 +117,12 @@ namespace Proyecto_JJPM_Software.Forms
 
         private void btnEnviar_Click(object sender, EventArgs e)
         {
-            DialogResult dr =MessageBox.Show("¿Estas seguro que deseas enviar los datos almacenados?", "Alerta", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+            DialogResult dr = MessageBox.Show("¿Estas seguro que deseas enviar los datos almacenados?", "Alerta", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
             if (dr==DialogResult.OK)
             {
-
+                dbManage.IngresoLeadsDefinitivo(LocalUsuario);
+                MessageBox.Show("Se ha enviado correctamente");
+                DG.DataSource = dbManage.SeleccionarLeads(LocalUsuario);
             }
         }
 

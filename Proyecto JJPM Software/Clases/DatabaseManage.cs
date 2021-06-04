@@ -276,6 +276,30 @@ namespace Proyecto_JJPM_Software.Clases
             }
             return false;
         }
+
+        public void IngresoLeadsDefinitivo(string usuario)
+        {
+            try
+            {
+                InstanciarBaseDatos();
+                //Agrega a la tabla original
+                MySqlCommand cmd = new MySqlCommand("INSERT INTO Leads(Fecha, Nombre, Telefono, Manager, Correo, Direccion, Zona, Usuario) SELECT Fecha, Nombre, Telefono, Manager, Correo, Direccion, Zona, Usuario FROM TemporalLeads where Usuario ='@Usuario'",dbConnection);
+                cmd.Parameters.Add(new MySqlParameter("@Usuario", usuario));
+                cmd.ExecuteNonQuery();
+                CerrarBaseDatos();
+                InstanciarBaseDatos();
+                //Eliminamos de la tabla temporal
+                MySqlCommand cmd2 = new MySqlCommand("DELETE FROM TemporalLeads WHERE Usuario='@Usuario'",dbConnection);
+                cmd2.Parameters.Add(new MySqlParameter("@Usuario", usuario));
+                cmd2.ExecuteNonQuery();
+                CerrarBaseDatos();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                CerrarBaseDatos();
+            }
+        }
         #endregion
 
         #region BaseDatos
