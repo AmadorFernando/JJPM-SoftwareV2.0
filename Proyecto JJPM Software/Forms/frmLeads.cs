@@ -10,17 +10,17 @@ namespace Proyecto_JJPM_Software.Forms
         private DatabaseManage dbManage;
         // Usuario
         protected string LocalUsuario;
-        
 
-		public frmLeads(string usuario)
+
+        public frmLeads(string usuario)
         {
             InitializeComponent();
             LocalUsuario = usuario;
             dbManage = new DatabaseManage();
-        }		
+        }
 
-		private void BTNInsert_Click(object sender, EventArgs e)
-		{
+        private void BTNInsert_Click(object sender, EventArgs e)
+        {
             //Zona
             string Zona = "";
             switch (cBoxZona.Text)
@@ -57,7 +57,7 @@ namespace Proyecto_JJPM_Software.Forms
             //Telefono
             string mas = mtxtTelefono.Text;
 
-            if (Zona==""||(mas.Length<12)||string.IsNullOrWhiteSpace(TBNombre.Text) || string.IsNullOrWhiteSpace(mtxtTelefono.Text) || string.IsNullOrWhiteSpace(TBManager.Text) || string.IsNullOrWhiteSpace(TBCorreo.Text) || string.IsNullOrWhiteSpace(TBDireccion.Text))
+            if (Zona == "" || (mas.Length < 12) || string.IsNullOrWhiteSpace(TBNombre.Text) || string.IsNullOrWhiteSpace(mtxtTelefono.Text) || string.IsNullOrWhiteSpace(TBManager.Text) || string.IsNullOrWhiteSpace(TBCorreo.Text) || string.IsNullOrWhiteSpace(TBDireccion.Text))
             {
                 MessageBox.Show("Falta ingresar informacion necesaria", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -86,10 +86,10 @@ namespace Proyecto_JJPM_Software.Forms
                     MessageBox.Show("Los datos no fueron insertados correctamente", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
-		}
+        }
 
-		private void BTNDelete_Click(object sender, EventArgs e)
-		{
+        private void BTNDelete_Click(object sender, EventArgs e)
+        {
             DialogResult dr = MessageBox.Show("¿Estas seguro que deseas eliminar a este Lead?", "Alerta", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation);
             if (dr == DialogResult.Yes && !(string.IsNullOrWhiteSpace(TBIdDelete.Text)))
             {
@@ -106,9 +106,9 @@ namespace Proyecto_JJPM_Software.Forms
             }
             else
             {
-                MessageBox.Show("Favor de ingresar el ID","Alerta",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                MessageBox.Show("Favor de ingresar el ID", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-		}
+        }
 
         private void TBIdDelete_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -118,17 +118,36 @@ namespace Proyecto_JJPM_Software.Forms
         private void btnEnviar_Click(object sender, EventArgs e)
         {
             DialogResult dr = MessageBox.Show("¿Estas seguro que deseas enviar los datos almacenados?", "Alerta", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
-            if (dr==DialogResult.OK)
+            if (dr == DialogResult.OK)
             {
                 dbManage.IngresoLeadsDefinitivo(LocalUsuario);
                 MessageBox.Show("Se ha enviado correctamente");
                 DG.DataSource = dbManage.SeleccionarLeads(LocalUsuario);
+                Acomodar();
+                DG.Refresh();
             }
         }
 
         private void frmLeads_Load(object sender, EventArgs e)
         {
             DG.DataSource = dbManage.SeleccionarLeads(LocalUsuario);
+            Acomodar();
+            DG.Refresh();
+        }
+        void Acomodar()
+        {
+            for (int i = 0; i < DG.ColumnCount; i++)
+            {
+                if (i == 6)
+                {
+                    DG.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+                }
+                else
+                {
+                    DG.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                }
+            }
         }
     }
 }
+                

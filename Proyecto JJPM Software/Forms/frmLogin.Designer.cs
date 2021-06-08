@@ -32,37 +32,34 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.lblTituloCentral = new System.Windows.Forms.Label();
+            this.pboxMin = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.pboxMax = new System.Windows.Forms.PictureBox();
+            this.pboxClose = new System.Windows.Forms.PictureBox();
             this.P_Left = new System.Windows.Forms.Panel();
+            this.pboxLogo = new System.Windows.Forms.PictureBox();
             this.P_Login = new System.Windows.Forms.Panel();
             this.txtBoxPassword = new System.Windows.Forms.TextBox();
             this.txtBoxUsername = new System.Windows.Forms.TextBox();
+            this.pboxPassVisual = new System.Windows.Forms.PictureBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.lblPass = new System.Windows.Forms.Label();
             this.lblUser = new System.Windows.Forms.Label();
-            this.pboxPassVisual = new System.Windows.Forms.PictureBox();
-            this.pboxLogo = new System.Windows.Forms.PictureBox();
-            this.pboxMin = new System.Windows.Forms.PictureBox();
-            this.pboxMax = new System.Windows.Forms.PictureBox();
-            this.pboxClose = new System.Windows.Forms.PictureBox();
             this.panelTop.SuspendLayout();
-            this.P_Left.SuspendLayout();
-            this.P_Login.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pboxPassVisual)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pboxLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxClose)).BeginInit();
+            this.P_Left.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxLogo)).BeginInit();
+            this.P_Login.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxPassVisual)).BeginInit();
             this.SuspendLayout();
             // 
             // panelTop
             // 
             this.panelTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.panelTop.Controls.Add(this.button3);
-            this.panelTop.Controls.Add(this.button2);
             this.panelTop.Controls.Add(this.lblTituloCentral);
             this.panelTop.Controls.Add(this.pboxMin);
-            this.panelTop.Controls.Add(this.button1);
             this.panelTop.Controls.Add(this.pboxMax);
             this.panelTop.Controls.Add(this.pboxClose);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
@@ -75,7 +72,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(349, 12);
+            this.button3.Location = new System.Drawing.Point(3, 43);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(153, 31);
             this.button3.TabIndex = 13;
@@ -85,7 +82,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(190, 12);
+            this.button2.Location = new System.Drawing.Point(162, 6);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(153, 31);
             this.button2.TabIndex = 12;
@@ -100,15 +97,27 @@
             this.lblTituloCentral.AutoSize = true;
             this.lblTituloCentral.Font = new System.Drawing.Font("Century Gothic", 23.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTituloCentral.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblTituloCentral.Location = new System.Drawing.Point(567, 9);
+            this.lblTituloCentral.Location = new System.Drawing.Point(396, 9);
             this.lblTituloCentral.Name = "lblTituloCentral";
             this.lblTituloCentral.Size = new System.Drawing.Size(253, 37);
             this.lblTituloCentral.TabIndex = 8;
             this.lblTituloCentral.Text = "Inicio de Sesion";
             // 
+            // pboxMin
+            // 
+            this.pboxMin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pboxMin.Image = global::Proyecto_JJPM_Software.Properties.Resources.Minimize_Window_2_48px;
+            this.pboxMin.Location = new System.Drawing.Point(792, 3);
+            this.pboxMin.Name = "pboxMin";
+            this.pboxMin.Size = new System.Drawing.Size(48, 48);
+            this.pboxMin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pboxMin.TabIndex = 7;
+            this.pboxMin.TabStop = false;
+            this.pboxMin.Click += new System.EventHandler(this.pboxMin_Click);
+            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(31, 12);
+            this.button1.Location = new System.Drawing.Point(3, 6);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(153, 31);
             this.button1.TabIndex = 11;
@@ -116,15 +125,52 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // pboxMax
+            // 
+            this.pboxMax.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pboxMax.Image = global::Proyecto_JJPM_Software.Properties.Resources.Maximize_Window_2_48px;
+            this.pboxMax.Location = new System.Drawing.Point(849, 3);
+            this.pboxMax.Name = "pboxMax";
+            this.pboxMax.Size = new System.Drawing.Size(48, 48);
+            this.pboxMax.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pboxMax.TabIndex = 6;
+            this.pboxMax.TabStop = false;
+            this.pboxMax.Click += new System.EventHandler(this.pboxMax_Click);
+            // 
+            // pboxClose
+            // 
+            this.pboxClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pboxClose.Image = global::Proyecto_JJPM_Software.Properties.Resources.Close_Window__2_48px;
+            this.pboxClose.Location = new System.Drawing.Point(905, 4);
+            this.pboxClose.Name = "pboxClose";
+            this.pboxClose.Size = new System.Drawing.Size(48, 48);
+            this.pboxClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pboxClose.TabIndex = 4;
+            this.pboxClose.TabStop = false;
+            this.pboxClose.Click += new System.EventHandler(this.pboxClose_Click);
+            // 
             // P_Left
             // 
             this.P_Left.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.P_Left.Controls.Add(this.button3);
             this.P_Left.Controls.Add(this.pboxLogo);
+            this.P_Left.Controls.Add(this.button2);
+            this.P_Left.Controls.Add(this.button1);
             this.P_Left.Dock = System.Windows.Forms.DockStyle.Left;
             this.P_Left.Location = new System.Drawing.Point(0, 58);
             this.P_Left.Name = "P_Left";
             this.P_Left.Size = new System.Drawing.Size(400, 662);
             this.P_Left.TabIndex = 15;
+            // 
+            // pboxLogo
+            // 
+            this.pboxLogo.Image = global::Proyecto_JJPM_Software.Properties.Resources.JJP1;
+            this.pboxLogo.Location = new System.Drawing.Point(-3, 117);
+            this.pboxLogo.Name = "pboxLogo";
+            this.pboxLogo.Size = new System.Drawing.Size(400, 400);
+            this.pboxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pboxLogo.TabIndex = 12;
+            this.pboxLogo.TabStop = false;
             // 
             // P_Login
             // 
@@ -159,6 +205,19 @@
             this.txtBoxUsername.Name = "txtBoxUsername";
             this.txtBoxUsername.Size = new System.Drawing.Size(228, 26);
             this.txtBoxUsername.TabIndex = 14;
+            // 
+            // pboxPassVisual
+            // 
+            this.pboxPassVisual.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.pboxPassVisual.Image = global::Proyecto_JJPM_Software.Properties.Resources.visibility;
+            this.pboxPassVisual.Location = new System.Drawing.Point(392, 320);
+            this.pboxPassVisual.Name = "pboxPassVisual";
+            this.pboxPassVisual.Size = new System.Drawing.Size(28, 26);
+            this.pboxPassVisual.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pboxPassVisual.TabIndex = 14;
+            this.pboxPassVisual.TabStop = false;
+            this.pboxPassVisual.Click += new System.EventHandler(this.pboxPassVisual_Click);
+            this.pboxPassVisual.DoubleClick += new System.EventHandler(this.pboxPassVisual_DoubleClick);
             // 
             // btnLogin
             // 
@@ -198,65 +257,6 @@
             this.lblUser.TabIndex = 11;
             this.lblUser.Text = "Username";
             // 
-            // pboxPassVisual
-            // 
-            this.pboxPassVisual.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.pboxPassVisual.Image = global::Proyecto_JJPM_Software.Properties.Resources.visibility;
-            this.pboxPassVisual.Location = new System.Drawing.Point(392, 320);
-            this.pboxPassVisual.Name = "pboxPassVisual";
-            this.pboxPassVisual.Size = new System.Drawing.Size(28, 26);
-            this.pboxPassVisual.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pboxPassVisual.TabIndex = 14;
-            this.pboxPassVisual.TabStop = false;
-            this.pboxPassVisual.Click += new System.EventHandler(this.pboxPassVisual_Click);
-            this.pboxPassVisual.DoubleClick += new System.EventHandler(this.pboxPassVisual_DoubleClick);
-            // 
-            // pboxLogo
-            // 
-            this.pboxLogo.Image = global::Proyecto_JJPM_Software.Properties.Resources.JJP1;
-            this.pboxLogo.Location = new System.Drawing.Point(-3, 117);
-            this.pboxLogo.Name = "pboxLogo";
-            this.pboxLogo.Size = new System.Drawing.Size(400, 400);
-            this.pboxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pboxLogo.TabIndex = 12;
-            this.pboxLogo.TabStop = false;
-            // 
-            // pboxMin
-            // 
-            this.pboxMin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pboxMin.Image = global::Proyecto_JJPM_Software.Properties.Resources.Minimize_Window_2_48px;
-            this.pboxMin.Location = new System.Drawing.Point(872, 20);
-            this.pboxMin.Name = "pboxMin";
-            this.pboxMin.Size = new System.Drawing.Size(23, 23);
-            this.pboxMin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pboxMin.TabIndex = 7;
-            this.pboxMin.TabStop = false;
-            this.pboxMin.Click += new System.EventHandler(this.pboxMin_Click);
-            // 
-            // pboxMax
-            // 
-            this.pboxMax.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pboxMax.Image = global::Proyecto_JJPM_Software.Properties.Resources.Maximize_Window_2_48px;
-            this.pboxMax.Location = new System.Drawing.Point(901, 20);
-            this.pboxMax.Name = "pboxMax";
-            this.pboxMax.Size = new System.Drawing.Size(23, 23);
-            this.pboxMax.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pboxMax.TabIndex = 6;
-            this.pboxMax.TabStop = false;
-            this.pboxMax.Click += new System.EventHandler(this.pboxMax_Click);
-            // 
-            // pboxClose
-            // 
-            this.pboxClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pboxClose.Image = global::Proyecto_JJPM_Software.Properties.Resources.Close_Window__2_48px;
-            this.pboxClose.Location = new System.Drawing.Point(930, 20);
-            this.pboxClose.Name = "pboxClose";
-            this.pboxClose.Size = new System.Drawing.Size(23, 23);
-            this.pboxClose.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pboxClose.TabIndex = 4;
-            this.pboxClose.TabStop = false;
-            this.pboxClose.Click += new System.EventHandler(this.pboxClose_Click);
-            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -274,14 +274,14 @@
             this.Shown += new System.EventHandler(this.frmLogin_Shown);
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
-            this.P_Left.ResumeLayout(false);
-            this.P_Login.ResumeLayout(false);
-            this.P_Login.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pboxPassVisual)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pboxLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxMin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxMax)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pboxClose)).EndInit();
+            this.P_Left.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pboxLogo)).EndInit();
+            this.P_Login.ResumeLayout(false);
+            this.P_Login.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pboxPassVisual)).EndInit();
             this.ResumeLayout(false);
 
         }

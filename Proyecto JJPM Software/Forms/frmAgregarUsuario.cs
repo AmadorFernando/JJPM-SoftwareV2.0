@@ -27,7 +27,7 @@ namespace Proyecto_JJPM_Software.Forms
             string Fecha = "";
             DateTime fechita = dateTPIngreso.Value.Date;
             DateTime Fechahoy = DateTime.Now;
-            Fecha = dateTPIngreso.Value.Date.ToShortDateString();
+            Fecha = dateTPIngreso.Value.Date.ToString("yyyy-MM-dd");
             if (fechita.Date>Fechahoy.Date)
             {
                 MessageBox.Show("Ingresa una fecha que no haya pasado aun.","Dato Erroneo",MessageBoxButtons.OK,MessageBoxIcon.Error);
@@ -167,7 +167,7 @@ namespace Proyecto_JJPM_Software.Forms
 
         private void TBNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == (char)Keys.Space);
         }
 
         private void TBNombre2_KeyPress(object sender, KeyPressEventArgs e)

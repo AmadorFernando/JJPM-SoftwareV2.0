@@ -16,7 +16,8 @@ namespace Proyecto_JJPM_Software.Forms
 		private void BTNInsert_Click_1(object sender, System.EventArgs e)
 		{
             //Fecha Actual
-            string Fecha = DateTime.Now.ToShortDateString();
+            string Fecha = DateTime.Now.ToString("yyyy-MM-dd");
+            MessageBox.Show(Fecha);
             //Accion
             string Accion = "";
 
@@ -48,7 +49,8 @@ namespace Proyecto_JJPM_Software.Forms
                 {
                     MessageBox.Show("Datos insertados correctamente", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     DGCaller.DataSource = dbManage.SeleccionarCallers();
-
+                    Acomodar("Callers");
+                    DGCaller.Refresh();
                     //Limpiamos las textbox
                     TBIdLead.Clear();
                     TBComentario.Clear();
@@ -71,6 +73,8 @@ namespace Proyecto_JJPM_Software.Forms
                 {
                     MessageBox.Show("Datos Eliminados con exito.", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     DGCaller.DataSource = dbManage.SeleccionarCallers();
+                    Acomodar("caller");
+                    DGCaller.Refresh();
                 }
                 else
                 {
@@ -87,6 +91,48 @@ namespace Proyecto_JJPM_Software.Forms
         {
             DGLeads.DataSource = dbManage.SeleccionarLeads();
             DGCaller.DataSource = dbManage.SeleccionarCallers();
+            Acomodar("Leads");
+            Acomodar("caller");
+        }
+        void Acomodar(string tipo)
+        {
+            if (tipo=="Leads")
+            {
+                for (int i = 0; i < DGLeads.ColumnCount; i++)
+                {
+                    if (i == 0 || i == 7)
+                    {
+                        DGLeads.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+                    }
+                    else
+                    {
+                        DGLeads.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    }
+                }
+            }
+            else
+            {
+                for (int i = 0; i < DGCaller.ColumnCount; i++)
+                {
+                    if (i == 0 || i == 1|| i==2)
+                    {
+                        DGCaller.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+                    }
+                    else
+                    {
+                        DGCaller.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    }
+                }
+            }
+        }
+        private void DGLeads_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (DGLeads.SelectedRows.Count > 0) // make sure user select at least 1 row 
+            {
+                string id = DGLeads.SelectedRows[0].Cells[0].Value.ToString();
+
+                TBIdLead.Text =id;
+            }
         }
     }
 }

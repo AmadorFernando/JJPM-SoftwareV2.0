@@ -129,7 +129,7 @@
             this.TBPass.MaxLength = 20;
             this.TBPass.Name = "TBPass";
             this.TBPass.PasswordChar = '·';
-            this.TBPass.Size = new System.Drawing.Size(122, 26);
+            this.TBPass.Size = new System.Drawing.Size(125, 26);
             this.TBPass.TabIndex = 5;
             // 
             // TBNombre
@@ -137,7 +137,7 @@
             this.TBNombre.Location = new System.Drawing.Point(170, 70);
             this.TBNombre.MaxLength = 25;
             this.TBNombre.Name = "TBNombre";
-            this.TBNombre.Size = new System.Drawing.Size(123, 26);
+            this.TBNombre.Size = new System.Drawing.Size(126, 26);
             this.TBNombre.TabIndex = 1;
             this.TBNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBNombre_KeyPress);
             // 
@@ -146,7 +146,7 @@
             this.TBAp.Location = new System.Drawing.Point(170, 150);
             this.TBAp.MaxLength = 20;
             this.TBAp.Name = "TBAp";
-            this.TBAp.Size = new System.Drawing.Size(122, 26);
+            this.TBAp.Size = new System.Drawing.Size(125, 26);
             this.TBAp.TabIndex = 3;
             this.TBAp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBAp_KeyPress);
             // 
@@ -155,7 +155,7 @@
             this.TBAm.Location = new System.Drawing.Point(170, 190);
             this.TBAm.MaxLength = 20;
             this.TBAm.Name = "TBAm";
-            this.TBAm.Size = new System.Drawing.Size(122, 26);
+            this.TBAm.Size = new System.Drawing.Size(125, 26);
             this.TBAm.TabIndex = 4;
             this.TBAm.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBAm_KeyPress);
             // 
@@ -222,7 +222,7 @@
             this.TBNombre2.Location = new System.Drawing.Point(170, 110);
             this.TBNombre2.MaxLength = 25;
             this.TBNombre2.Name = "TBNombre2";
-            this.TBNombre2.Size = new System.Drawing.Size(123, 26);
+            this.TBNombre2.Size = new System.Drawing.Size(126, 26);
             this.TBNombre2.TabIndex = 2;
             this.TBNombre2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TBNombre2_KeyPress);
             // 
@@ -243,7 +243,7 @@
             "Leads"});
             this.cBoxTipo.Location = new System.Drawing.Point(170, 270);
             this.cBoxTipo.Name = "cBoxTipo";
-            this.cBoxTipo.Size = new System.Drawing.Size(121, 28);
+            this.cBoxTipo.Size = new System.Drawing.Size(124, 28);
             this.cBoxTipo.TabIndex = 6;
             this.cBoxTipo.Text = "Selecciona...";
             // 

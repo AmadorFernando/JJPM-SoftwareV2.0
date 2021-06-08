@@ -78,7 +78,7 @@
             // TBIdLead
             // 
             this.TBIdLead.AcceptsTab = true;
-            this.TBIdLead.Location = new System.Drawing.Point(107, 41);
+            this.TBIdLead.Location = new System.Drawing.Point(107, 12);
             this.TBIdLead.MaxLength = 30;
             this.TBIdLead.Name = "TBIdLead";
             this.TBIdLead.Size = new System.Drawing.Size(41, 26);
@@ -87,7 +87,7 @@
             // lblidLead
             // 
             this.lblidLead.AutoSize = true;
-            this.lblidLead.Location = new System.Drawing.Point(38, 44);
+            this.lblidLead.Location = new System.Drawing.Point(38, 15);
             this.lblidLead.Name = "lblidLead";
             this.lblidLead.Size = new System.Drawing.Size(63, 20);
             this.lblidLead.TabIndex = 39;
@@ -96,7 +96,7 @@
             // lblAccion
             // 
             this.lblAccion.AutoSize = true;
-            this.lblAccion.Location = new System.Drawing.Point(39, 76);
+            this.lblAccion.Location = new System.Drawing.Point(39, 47);
             this.lblAccion.Name = "lblAccion";
             this.lblAccion.Size = new System.Drawing.Size(63, 20);
             this.lblAccion.TabIndex = 40;
@@ -115,7 +115,7 @@
             // 
             this.BTNInsert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTNInsert.Font = new System.Drawing.Font("Lucida Bright", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BTNInsert.Location = new System.Drawing.Point(142, 108);
+            this.BTNInsert.Location = new System.Drawing.Point(283, 108);
             this.BTNInsert.Name = "BTNInsert";
             this.BTNInsert.Size = new System.Drawing.Size(195, 59);
             this.BTNInsert.TabIndex = 4;
@@ -166,6 +166,7 @@
             this.DGLeads.Size = new System.Drawing.Size(1079, 198);
             this.DGLeads.TabIndex = 54;
             this.DGLeads.TabStop = false;
+            this.DGLeads.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGLeads_CellClick);
             // 
             // panelCenter
             // 
@@ -209,7 +210,7 @@
             "B/V",
             "D/C",
             "N/I"});
-            this.cboxAccion.Location = new System.Drawing.Point(108, 74);
+            this.cboxAccion.Location = new System.Drawing.Point(108, 45);
             this.cboxAccion.Name = "cboxAccion";
             this.cboxAccion.Size = new System.Drawing.Size(107, 28);
             this.cboxAccion.TabIndex = 2;
@@ -255,7 +256,7 @@
             this.lblLetreroIzquierdo.AutoSize = true;
             this.lblLetreroIzquierdo.Font = new System.Drawing.Font("Lucida Calligraphy", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLetreroIzquierdo.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblLetreroIzquierdo.Location = new System.Drawing.Point(101, 8);
+            this.lblLetreroIzquierdo.Location = new System.Drawing.Point(130, 8);
             this.lblLetreroIzquierdo.Name = "lblLetreroIzquierdo";
             this.lblLetreroIzquierdo.Size = new System.Drawing.Size(166, 37);
             this.lblLetreroIzquierdo.TabIndex = 9;
