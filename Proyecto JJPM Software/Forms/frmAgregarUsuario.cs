@@ -187,7 +187,7 @@ namespace Proyecto_JJPM_Software.Forms
 
         private void TBIdDelete_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back);
+            e.Handled = !(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back|| char.IsDigit(e.KeyChar));
         }
 
         private void frmAgregarUsuario_Load(object sender, EventArgs e)

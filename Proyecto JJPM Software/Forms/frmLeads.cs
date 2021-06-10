@@ -44,14 +44,7 @@ namespace Proyecto_JJPM_Software.Forms
                     Zona = "6";
                     break;
                 default:
-                    //if (Zona == "" || (mtxtTelefono.Text.Length < 12) || string.IsNullOrWhiteSpace(TBNombre.Text) || string.IsNullOrWhiteSpace(mtxtTelefono.Text) || string.IsNullOrWhiteSpace(TBManager.Text) || string.IsNullOrWhiteSpace(TBCorreo.Text) || string.IsNullOrWhiteSpace(TBDireccion.Text))
-                    //{
-                    //    MessageBox.Show("Falta ingresar informacion necesaria", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    //}
-                    //else
-                    //{
-                    //    MessageBox.Show("Selecciona una zona valida", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    //}
+                    
                     break;
             }
             //Telefono

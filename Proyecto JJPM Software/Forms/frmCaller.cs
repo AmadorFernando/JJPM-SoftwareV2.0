@@ -92,14 +92,17 @@ namespace Proyecto_JJPM_Software.Forms
             DGCaller.DataSource = dbManage.SeleccionarCallers();
             Acomodar("Leads");
             Acomodar("caller");
+            DGLeads.Refresh();
+            DGCaller.Refresh();
         }
+
         void Acomodar(string tipo)
         {
             if (tipo=="Leads")
             {
                 for (int i = 0; i < DGLeads.ColumnCount; i++)
                 {
-                    if (i == 0 || i == 7)
+                    if (i == 0 || i==7)
                     {
                         DGLeads.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
                     }
