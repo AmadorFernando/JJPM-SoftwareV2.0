@@ -119,6 +119,7 @@
             this.BTNInsert.Name = "BTNInsert";
             this.BTNInsert.Size = new System.Drawing.Size(195, 59);
             this.BTNInsert.TabIndex = 4;
+            this.BTNInsert.TabStop = false;
             this.BTNInsert.Text = "Ingresar";
             this.BTNInsert.UseVisualStyleBackColor = true;
             this.BTNInsert.Click += new System.EventHandler(this.BTNInsert_Click_1);
@@ -133,6 +134,7 @@
             this.BTNDelete.Name = "BTNDelete";
             this.BTNDelete.Size = new System.Drawing.Size(195, 59);
             this.BTNDelete.TabIndex = 45;
+            this.BTNDelete.TabStop = false;
             this.BTNDelete.Text = "Eliminar";
             this.BTNDelete.UseVisualStyleBackColor = false;
             this.BTNDelete.Click += new System.EventHandler(this.BTNDelete_Click_1);
@@ -143,6 +145,7 @@
             this.TBIdDelete.Name = "TBIdDelete";
             this.TBIdDelete.Size = new System.Drawing.Size(56, 26);
             this.TBIdDelete.TabIndex = 5;
+            this.TBIdDelete.TabStop = false;
             // 
             // lblIdcallerEliminar
             // 
@@ -256,7 +259,7 @@
             this.lblLetreroIzquierdo.AutoSize = true;
             this.lblLetreroIzquierdo.Font = new System.Drawing.Font("Lucida Calligraphy", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLetreroIzquierdo.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblLetreroIzquierdo.Location = new System.Drawing.Point(130, 8);
+            this.lblLetreroIzquierdo.Location = new System.Drawing.Point(142, 8);
             this.lblLetreroIzquierdo.Name = "lblLetreroIzquierdo";
             this.lblLetreroIzquierdo.Size = new System.Drawing.Size(166, 37);
             this.lblLetreroIzquierdo.TabIndex = 9;
@@ -264,6 +267,7 @@
             // 
             // frmCaller
             // 
+            this.AcceptButton = this.BTNInsert;
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1080, 660);

@@ -208,6 +208,7 @@
             this.lblidLead.Size = new System.Drawing.Size(63, 20);
             this.lblidLead.TabIndex = 9;
             this.lblidLead.Text = "IdLead";
+            this.lblidLead.Visible = false;
             // 
             // TBIdInsert
             // 
@@ -217,6 +218,7 @@
             this.TBIdInsert.Size = new System.Drawing.Size(30, 26);
             this.TBIdInsert.TabIndex = 1;
             this.TBIdInsert.TabStop = false;
+            this.TBIdInsert.Visible = false;
             // 
             // cBoxZona
             // 

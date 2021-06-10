@@ -65,8 +65,7 @@ namespace Proyecto_JJPM_Software.Forms
             else
             {
                 //Fecha Actual
-                string Fecha = DateTime.Now.ToShortDateString();
-                MessageBox.Show(Fecha);
+                string Fecha = DateTime.Now.ToString("yyyy-MM-dd");
                 if (dbManage.InsertarLead(LocalUsuario, Fecha, TBNombre.Text, mas, TBManager.Text, TBCorreo.Text, TBDireccion.Text, Zona))
                 {
                     MessageBox.Show("Datos insertados correctamente", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);

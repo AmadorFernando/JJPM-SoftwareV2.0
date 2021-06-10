@@ -193,7 +193,18 @@ namespace Proyecto_JJPM_Software.Forms
         private void frmAgregarUsuario_Load(object sender, EventArgs e)
         {
             DG.DataSource = dbManage.SeleccionarUsuarios();
+            Acomodar();
+            DG.Refresh();
             TBIdInsert.Text = DG.Rows.Count.ToString();
+        }
+        void Acomodar()
+        {
+            for (int i = 0; i < DG.ColumnCount; i++)
+            {
+
+                    DG.Columns[i].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                
+            }
         }
     }
 }

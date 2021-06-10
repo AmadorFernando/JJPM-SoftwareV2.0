@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.panelTop = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.lblTituloCentral = new System.Windows.Forms.Label();
             this.pboxMin = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.pboxMax = new System.Windows.Forms.PictureBox();
             this.pboxClose = new System.Windows.Forms.PictureBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.P_Left = new System.Windows.Forms.Panel();
             this.pboxLogo = new System.Windows.Forms.PictureBox();
             this.P_Login = new System.Windows.Forms.Panel();
@@ -70,26 +70,6 @@
             this.panelTop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTop_MouseDown);
             this.panelTop.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelTop_MouseMove);
             // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(3, 43);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(153, 31);
-            this.button3.TabIndex = 13;
-            this.button3.Text = "Boton del Caller";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(162, 6);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(153, 31);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "Boton del Leads";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // lblTituloCentral
             // 
             this.lblTituloCentral.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -115,16 +95,6 @@
             this.pboxMin.TabStop = false;
             this.pboxMin.Click += new System.EventHandler(this.pboxMin_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(3, 6);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(153, 31);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Boton del Admin";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // pboxMax
             // 
             this.pboxMax.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -148,6 +118,36 @@
             this.pboxClose.TabIndex = 4;
             this.pboxClose.TabStop = false;
             this.pboxClose.Click += new System.EventHandler(this.pboxClose_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(3, 43);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(153, 31);
+            this.button3.TabIndex = 13;
+            this.button3.Text = "Boton del Caller";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(162, 6);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(153, 31);
+            this.button2.TabIndex = 12;
+            this.button2.Text = "Boton del Leads";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(3, 6);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(153, 31);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Boton del Admin";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // P_Left
             // 
@@ -259,6 +259,7 @@
             // 
             // frmLogin
             // 
+            this.AcceptButton = this.btnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(965, 720);

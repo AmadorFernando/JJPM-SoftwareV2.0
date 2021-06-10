@@ -213,7 +213,7 @@ namespace Proyecto_JJPM_Software.Clases
             {
                 InstanciarBaseDatos();
                 DataSet ds;
-                MySqlCommand sqlCommand = new MySqlCommand("select Fecha,Nombre, Telefono, Manager, Correo, Direccion, Zona, Usuario from TemporalLeads where Usuario=@Usuario;", dbConnection);
+                MySqlCommand sqlCommand = new MySqlCommand("select *  from TemporalLeads where Usuario=@Usuario;", dbConnection);
                 MySqlParameter parametro = new MySqlParameter();
                 sqlCommand.Parameters.Add(new MySqlParameter("@Usuario", LocalUsuario));
                 MySqlDataAdapter da = new MySqlDataAdapter(sqlCommand);

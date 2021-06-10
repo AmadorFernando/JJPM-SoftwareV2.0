@@ -17,7 +17,6 @@ namespace Proyecto_JJPM_Software.Forms
 		{
             //Fecha Actual
             string Fecha = DateTime.Now.ToString("yyyy-MM-dd");
-            MessageBox.Show(Fecha);
             //Accion
             string Accion = "";
 
